@@ -1,0 +1,3 @@
+[submodule "3rdparty/lib2geom"]
+	path = 3rdparty/lib2geom
+	url = https://gitlab.com/inkscape/lib2geom.git

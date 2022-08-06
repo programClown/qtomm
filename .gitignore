@@ -1,6 +1,40 @@
-# Prerequisites
-*.d
+# ---> Qt
+# C++ objects and libs
 
+*.slo
+*.lo
+*.o
+*.a
+*.la
+*.lai
+*.so
+*.dll
+*.dylib
+
+# Qt-es
+
+/.qmake.cache
+/.qmake.stash
+*.pro.user
+*.pro.user.*
+*.qbs.user
+*.qbs.user.*
+*.moc
+moc_*.cpp
+qrc_*.cpp
+ui_*.h
+Makefile*
+*-build-*
+
+# QtCreator
+
+*.autosave
+
+#QtCtreator Qml
+*.qmlproject.user
+*.qmlproject.user.*
+
+# ---> C++
 # Compiled Object files
 *.slo
 *.lo
@@ -10,6 +44,9 @@
 # Precompiled Headers
 *.gch
 *.pch
+*.pdb
+*.exp
+*.ilk
 
 # Compiled Dynamic libraries
 *.so
@@ -18,7 +55,6 @@
 
 # Fortran module files
 *.mod
-*.smod
 
 # Compiled Static libraries
 *.lai
@@ -30,3 +66,47 @@
 *.exe
 *.out
 *.app
+
+# ---> C
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+*.dump
+*.dmp
+
+# Debug files
+*.dSYM/
+
+# python
+*.pyc
+
+# vscode
+.vscode
+.idea
+
