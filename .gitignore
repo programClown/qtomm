@@ -110,3 +110,4 @@ Makefile*
 .vscode
 .idea
 
+3rdparty/skia/**

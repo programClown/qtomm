@@ -1,11 +1,22 @@
 #include <QApplication>
 #include <QPushButton>
+#include "QSkiaWidget.h"
+#include "SampleRender.h"
 
-int main(int argc, char* argv[])
-{
-	QApplication a(argc, argv);
-	QPushButton button("Hello world!", nullptr);
-	button.resize(200, 100);
-	button.show();
-	return QApplication::exec();
+class SkiaWidget : public QSkiaWidget {
+Q_OBJECT
+public:
+    void draw(SkCanvas *canvas, int elapsed) override {
+        m_renderer.draw(canvas, elapsed, this->width(), this->height());
+    }
+
+private:
+    SampleRender m_renderer;
+};
+
+int main(int argc, char *argv[]) {
+    QApplication a(argc, argv);
+    SkiaWidget w;
+    w.show();
+    return QApplication::exec();
 }
