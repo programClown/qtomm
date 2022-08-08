@@ -12,8 +12,11 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-set(mode "Debug")
+add_compile_options("$<$<C_COMPILER_ID:MSVC>:/utf-8>")
+add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
 
+set(mode ${CMAKE_BUILD_TYPE})
+message(${mode})
 option(BUILD_TRANSLATION "Build translations of the application." ON)
 option(USE_QT_5_12 "Allow to use Qt 5.12. Set this option to true for static analyzing only.
                     Builds with this configuration are not supposed to be run."
@@ -32,20 +35,22 @@ find_package(Qt5 COMPONENTS
 
 set(Skia_FOUND TRUE)
 
-if (${mode} AND ${mode} STREQUAL "Debug")
+if (CMAKE_BUILD_TYPE MATCHES "Debug")
+    set(IMPORTED_LOCATION_TYPE "debug")
     include_directories(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/skia/Debug-x64/)
-    link_directories(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/skia/Debug-x64/out/Debug-x64)
+    link_directories(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/skia/Debug-x64/out/Debug-windows-x64)
     message("${mode} mode: " "path: ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/skia/Debug-x64/")
 else ()
+    set(IMPORTED_LOCATION_TYPE "optimized")
     include_directories(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/skia/Release-x64/)
-    link_directories(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/skia/Release-x64/out/Release-x64)
+    link_directories(${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/skia/Release-x64/out/Release-windows-x64)
     message("${mode} mode: " "path: ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/skia/Release-x64/")
 endif ()
 
 add_executable(qtomm src/main/main.cpp)
 set_target_properties(qtomm PROPERTIES WIN32_EXCUTABLE ON)
 add_library(libqtomm STATIC)
-target_include_directories(qtomm PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/skia/Release-x64/include)
+
 target_link_libraries(qtomm
         Qt5::Core
         Qt5::Gui
@@ -55,7 +60,7 @@ target_link_libraries(qtomm
 target_link_libraries(qtomm libqtomm)
 
 #skia
-target_link_libraries(qtomm d3d12allocator.lib
+target_link_libraries(qtomm ${IMPORTED_LOCATION_TYPE} d3d12allocator.lib
         expat.lib
         freetype2.lib
         harfbuzz.lib
@@ -71,10 +76,14 @@ target_link_libraries(qtomm d3d12allocator.lib
         spirv_cross.lib
         svg.lib
         zlib.lib
+        DXGI.lib
+        D3D12.lib
+        Opengl32.lib
+        d3dcompiler.lib
         )
 
 if (${mode} AND ${mode} STREQUAL "Debug")
-    target_link_libraries(qtomm spvtools.lib
+    target_link_libraries(qtomm debug spvtools.lib
             spvtools_val.lib
             )
 endif ()
