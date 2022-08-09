@@ -2,5 +2,5 @@
 
 std::string_view git_describe()
 {
-    return "@GIT_DESCRIBE@";
+  return "@GIT_DESCRIBE@";
 }

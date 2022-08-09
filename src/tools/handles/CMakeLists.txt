@@ -1,0 +1,19 @@
+target_sources(libqtomm PRIVATE
+  abstractselecthandle.cpp
+  abstractselecthandle.h
+  boundingboxhandle.h
+  handle.cpp
+  handle.h
+  moveaxishandle.h
+  particlehandle.cpp
+  particlehandle.h
+  pointselecthandle.cpp
+  pointselecthandle.h
+  rotatehandle.h
+  scalebandhandle.h
+  scaleaxishandle.h
+  tangenthandle.cpp
+  tangenthandle.h
+  objectselecthandle.cpp
+  objectselecthandle.h
+)

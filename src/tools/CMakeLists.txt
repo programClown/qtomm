@@ -1,0 +1,30 @@
+target_sources(libqtomm PRIVATE
+  brushselecttool.cpp
+  brushselecttool.h
+  knifetool.cpp
+  knifetool.h
+  pathtool.cpp
+  pathtool.h
+  selectobjectstool.cpp
+  selectobjectstool.h
+  selectpointsbasetool.cpp
+  selectpointsbasetool.h
+  selectpointstool.cpp
+  selectpointstool.h
+  selecttool.cpp
+  selecttool.h
+  selectsimilartool.cpp
+  selectsimilartool.h
+  transformobjectshelper.cpp
+  transformobjectshelper.h
+  transformpointshelper.cpp
+  transformpointshelper.h
+  transformpointstool.cpp
+  transformpointstool.h
+  toolbox.cpp
+  toolbox.h
+  tool.cpp
+  tool.h
+)
+
+add_subdirectory(handles)

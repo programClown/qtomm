@@ -1,0 +1,35 @@
+target_sources(libqtomm PRIVATE
+  boolproperty.cpp
+  boolproperty.h
+  colorproperty.cpp
+  colorproperty.h
+  floatproperty.cpp
+  floatproperty.h
+  integerproperty.cpp
+  integerproperty.h
+  numericproperty.cpp
+  numericproperty.h
+  optionproperty.cpp
+  optionproperty.h
+  property.cpp
+  property.h
+  propertyconfiguration.cpp
+  propertyconfiguration.h
+  propertyfilter.cpp
+  propertyfilter.h
+  referenceproperty.cpp
+  referenceproperty.h
+  stringproperty.cpp
+  stringproperty.h
+  splineproperty.cpp
+  splineproperty.h
+  triggerproperty.cpp
+  triggerproperty.h
+  typedproperty.h
+  floatvectorproperty.cpp
+  floatvectorproperty.h
+  integervectorproperty.cpp
+  integervectorproperty.h
+)
+
+add_subdirectory(propertygroups)

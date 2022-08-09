@@ -1,0 +1,20 @@
+target_sources(libqtomm PRIVATE
+  abstractcolorcomponentwidget.cpp
+  abstractcolorcomponentwidget.h
+  colorcircle.cpp
+  colorcircle.h
+  colordialog.cpp
+  colordialog.h
+  colorcomponentspinbox.cpp
+  colorcomponentspinbox.h
+  colorpicker.cpp
+  colorpicker.h
+  colorslab.cpp
+  colorslab.h
+  colorwidget.cpp
+  colorwidget.h
+  colorslider.cpp
+  colorslider.h
+  namedcolorsdialog.cpp
+  namedcolorsdialog.h
+)

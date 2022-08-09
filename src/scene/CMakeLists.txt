@@ -1,0 +1,34 @@
+target_sources(libqtomm PRIVATE
+  contextes.h
+  contextes_fwd.h
+  cycleguard.cpp
+  cycleguard.h
+  disjointpathpointsetforest.cpp
+  disjointpathpointsetforest.h
+  itemmodeladapter.cpp
+  itemmodeladapter.h
+  list.cpp
+  list.h
+  mailbox.cpp
+  mailbox.h
+  objecttree.cpp
+  objecttree.h
+  pointselection.cpp
+  pointselection.h
+  propertyownermimedata.cpp
+  propertyownermimedata.h
+  scene.cpp
+  scene.h
+  sceneserializer.cpp
+  sceneserializer.h
+  structure.cpp
+  structure.h
+  stylelist.cpp
+  stylelist.h
+  taglist.cpp
+  taglist.h
+  toplevelsplit.cpp
+  toplevelsplit.h
+)
+
+add_subdirectory(history)
